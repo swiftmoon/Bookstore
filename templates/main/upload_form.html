@@ -1,0 +1,21 @@
+{% extends 'layouts/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container mt-4">
+        <div class="d-flex justify-content-center">
+            <div class="card shadow-sm rounded">
+                <div class="card-header fw-bold text-center">
+                    Upload Books
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <form method='POST' enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% crispy form %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

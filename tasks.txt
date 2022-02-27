@@ -1,0 +1,13 @@
+Topshiriq:
+
+Products degan table oching unda
+ -id
+ -name
+ -description
+ -price
+ -image
+
+   Ustunlar bo'lsin. Shu table bilan ishlash uchun admin panel yarating.
+Bunda product qo'shish, o'zgartirish, o'chirish imkoniyatlari bo'lsin.
+Productlar ro'yxati pagination bilan chiqarilsin. Oxirgi yaratilgan
+product  birinchi pageda tursin.

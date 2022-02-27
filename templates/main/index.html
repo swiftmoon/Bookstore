@@ -1,0 +1,52 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+    <section class="">
+        <div class="container py-5">
+            <div class="row">
+                {% for product in books %}
+                    <div class="col col-lg-3">
+                        <div class="card">
+                            <img style="height: 400px;" class="card-img-top" alt="Responsive image"
+                                 src="{{ product.picture.url }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-text">{{ product.describe }}.</p>
+                                <p class="card-text">{{ product.price }}</p>
+                                <div class="d-flex justify-content-center">
+                                    <a href="update/{{ product.id }}" class="btn btn-primary me-5"
+                                       id='{{ product.id }}'><i class="bi bi-pencil-square me-1"></i>Edit</a>
+                                    <a href="delete/{{ product.id }}" class="btn btn-danger ms-5"
+                                       id='{{ product.id }}'><i class="bi bi-trash me-1"></i>Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <article>
+            <div class="container pb-4">
+                <nav aria-label="navigation">
+                    <ul class="pagination justify-content-center">
+                        {% if books.has_previous %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="?page={{ books.previous_page_number }}">Previous</a>
+                            </li>
+                        {% endif %}
+                        <li class="page-item"><a class="page-link" href="#">{{ books.number }}</a></li>
+                        <li class="page-item"><a class="page-link" href="#">of</a></li>
+                        <li class="page-item"><a class="page-link" href="#">{{ books.paginator.num_pages }}</a></li>
+                        {% if books.has_next %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="?page={{ books.next_page_number }}">Next</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+            </div>
+        </article>
+    </section>
+{% endblock %}
